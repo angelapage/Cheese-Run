@@ -52,11 +52,17 @@ public class Micesoncontroller : MonoBehaviour
 
     void Update()
     {
+        if (timerIsRunning)
+        {
+
+       
         if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             DisplayTime(timeRemaining);
         }
+
+         
 
         else
             {
@@ -66,6 +72,8 @@ public class Micesoncontroller : MonoBehaviour
                 PlaySound(loseSound);
                 speed = 0;
             }
+
+             }
         
          if (Input.GetKey(KeyCode.R))
         {
