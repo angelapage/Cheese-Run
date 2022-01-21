@@ -1447,8 +1447,8 @@ MonoBehaviour:
   time: {fileID: 1666574733}
   timerIsRunning: 0
   cloudPrefab: {fileID: 2231180031565375010, guid: 73930918d287bcb488e0866cb9398205, type: 3}
-  backgroundSound: {fileID: 8300000, guid: b6c0d03bb60da68449dfeb066df94219, type: 3}
-  winSound: {fileID: 8300000, guid: 9406a7d7fa623ed47990220e76545345, type: 3}
+  backgroundSound: {fileID: 8300000, guid: e5857da6552c1e1458cbc88ac390d57e, type: 3}
+  winSound: {fileID: 8300000, guid: 91ec604458911a04b8e716f54f0c11a1, type: 3}
   loseSound: {fileID: 8300000, guid: 025f01c16beb6814a90e8998681cb8f6, type: 3}
   foodSound: {fileID: 8300000, guid: d7ab211e1babd534b9124e85a257204c, type: 3}
 --- !u!82 &1297342564
@@ -1462,10 +1462,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

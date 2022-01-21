@@ -13,11 +13,14 @@ public class TextKill : MonoBehaviour
     void Start()
     {
         start.text = "Use the arrow keys or A & D to gather 3 cheese before time runs out!";
+
         audioSource = GetComponent<AudioSource>();
         audioSource.loop = true;
         PlaySound(startSound);
-        Destroy(gameObject, 2); 
+        
+        Destroy(gameObject, 2);
     }
+
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);

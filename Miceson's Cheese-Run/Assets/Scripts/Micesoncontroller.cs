@@ -9,6 +9,7 @@ public class Micesoncontroller : MonoBehaviour
     private Rigidbody2D rd2d;
     public float speed;
     public float timeRemaining = 10;
+     private int scoreValue = 0;
     
     public Text timer;
     public Text winText;
@@ -17,8 +18,7 @@ public class Micesoncontroller : MonoBehaviour
     public Text start;
     public Text time;
 
-     private int scoreValue = 0;
-     bool gameOver = false;
+    bool gameOver = false;
     public bool timerIsRunning = false;
 
     public GameObject cloudPrefab;
@@ -27,21 +27,24 @@ public class Micesoncontroller : MonoBehaviour
     public AudioClip winSound;
     public AudioClip loseSound;
     public AudioClip foodSound;
-     AudioSource audioSource;
+    AudioSource audioSource;
 
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
         score.text = "Cheese: " + scoreValue.ToString();
         timerIsRunning = true;
+        speed = 0;
         Instantiate (cloudPrefab);
+        Invoke("Unfreeze", 2);
 
         winText.text = "";
         loseText.text = "";
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.loop = true;
+        audioSource.loop = false;
         Invoke("playAudio", 2);
+        
     }
     void FixedUpdate()
     {
@@ -53,16 +56,12 @@ public class Micesoncontroller : MonoBehaviour
     void Update()
     {
         if (timerIsRunning)
-        {
-
-       
-        if (timeRemaining > 0)
-        {
-            timeRemaining -= Time.deltaTime;
-            DisplayTime(timeRemaining);
-        }
-
-         
+        {  
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+                DisplayTime(timeRemaining);
+            } 
 
         else
             {
@@ -73,7 +72,7 @@ public class Micesoncontroller : MonoBehaviour
                 speed = 0;
             }
 
-             }
+        }
         
          if (Input.GetKey(KeyCode.R))
         {
@@ -128,5 +127,10 @@ public class Micesoncontroller : MonoBehaviour
     void playAudio()
     {
        PlaySound(backgroundSound);
+    }
+
+    void Unfreeze()
+    {
+        speed = 5;
     }
 }
